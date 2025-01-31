@@ -5,7 +5,7 @@ import { myMiddleware } from "../middleware/my-middleware";
 const productsRoutes = Router()
 
 
-productsRoutes.get("/products", (req, res) => {
+productsRoutes.get("/", (req, res) => {
     const { page, limit } = req.query
 
     res.send(`Produtos da página ${page} com limite de ${limit}`)
@@ -13,7 +13,7 @@ productsRoutes.get("/products", (req, res) => {
 })
 
 // midleware local em uma rota especifica
-productsRoutes.post("/products", myMiddleware, (req, res) => {
+productsRoutes.post("/", myMiddleware, (req, res) => {
     const { nome, price} = req.body
     
      //res.send(`Produtos ${nome} custa $ ${price}`)

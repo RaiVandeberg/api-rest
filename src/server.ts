@@ -1,5 +1,5 @@
 import express from "express"
-
+import { routes } from "./routes"
 
 
 const PORT = 3333
@@ -8,8 +8,7 @@ const PORT = 3333
 const app = express()
 app.use(express.json())
 
-// midleware global
-//app.use(myMiddleware)
+app.use(routes)
 
 
 
