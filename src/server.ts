@@ -1,4 +1,4 @@
-import express from "express"
+import express, { Request, Response, NextFunction} from "express"
 import { routes } from "./routes"
 
 
@@ -9,6 +9,11 @@ const app = express()
 app.use(express.json())
 
 app.use(routes)
+
+app.use((error:any, req:Request, res:Response, _:NextFunction) => {
+res.status(500).json({message: error.message})
+}
+)
 
 
 
